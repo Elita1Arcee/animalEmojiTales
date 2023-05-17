@@ -1,7 +1,8 @@
-.heroImage{
-    background-image: url("/animalEmojiTales/images/readingImage.jpg");
-    background-repeat: no-repeat;
-  background-size: auto;
+.heroImage {
+  background-image: url('../animalEmojiTales/images/2010_reading_anima-min.jpg');
+  background-size: contain;
+  background-position:  center;
+  background-repeat: no-repeat;
 }
 
 
