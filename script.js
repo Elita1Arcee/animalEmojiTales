@@ -2,6 +2,7 @@ var enterBtn = document.getElementById("enterBtn");
 var userName = document.getElementById("userName");
 var title = document.getElementById("title");
 
+
 enterBtn.addEventListener("click", function(){
     if (userName.value.length > 1) {
         title.textContent = userName.value + "'s Animals";
@@ -21,3 +22,15 @@ userName.addEventListener("keydown", function(event) {
     }
 
 })
+
+var color1Btn = document.getElementById("color1");
+var color2Btn = document.getElementById("color2");
+var gradientBox = document.getElementById("gradientBox");
+
+function gradientCtrl() {
+    gradientBox.style.background = "linear-gradient(" + color1Btn.value + "," + color2Btn.value + ")";
+}
+
+color1Btn.addEventListener("input", gradientCtrl);
+
+color2Btn.addEventListener("input", gradientCtrl);

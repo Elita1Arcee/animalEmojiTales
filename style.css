@@ -3,6 +3,11 @@
   background-size: contain;
   background-position:  center;
   background-repeat: no-repeat;
+  opacity: 50%;
+}
+
+.gradientBox {
+    background: linear-gradient(purple, yellow);
 }
 
 
