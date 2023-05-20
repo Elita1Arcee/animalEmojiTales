@@ -23,9 +23,18 @@ userName.addEventListener("keydown", function(event) {
 
 })
 
+
 var color1Btn = document.getElementById("color1");
 var color2Btn = document.getElementById("color2");
 var gradientBox = document.getElementById("gradientBox");
+var currentStyles = window.getComputedStyle(gradientBox, null);
+var bgColor = currentStyles.getPropertyValue("background");
+
+function intialLoad() {
+    console.log(bgColor);
+}
+
+intialLoad();
 
 function gradientCtrl() {
     gradientBox.style.background = "linear-gradient(" + color1Btn.value + "," + color2Btn.value + ")";
