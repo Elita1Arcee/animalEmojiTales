@@ -1,11 +1,11 @@
 // Variable names and code for on click and keydown function
 
-var enterBtn = document.getElementById("enterBtn");
-var userName = document.getElementById("userName");
-var title = document.getElementById("title");
+let enterBtn = document.getElementById("enterBtn");
+let userName = document.getElementById("userName");
+let title = document.getElementById("title");
 
 // On click get name from user input and use it to update the title
-enterBtn.addEventListener("click", function(){
+enterBtn.addEventListener("click", () => {
     if (userName.value.length > 1) {
         title.textContent = userName.value + "'s Animals";
         userName.value = "";
@@ -14,7 +14,7 @@ enterBtn.addEventListener("click", function(){
 })
 
 //On keydown/key press of enter button, get user input and use it to update the title
-userName.addEventListener("keydown", function(event) {
+userName.addEventListener("keydown", (event) => {
     if (userName.value.length > 1 && event.code === "Enter" || event.code === "NumpadEnter") {
         console.log("13");
         title.textContent = userName.value + "'s Animals";
@@ -27,29 +27,29 @@ userName.addEventListener("keydown", function(event) {
 })
 
 //Variables for color input and gradient container
-var color1Btn = document.getElementById("color1");
-var color2Btn = document.getElementById("color2");
-var gradientBox = document.getElementById("gradientBox");
+let color1Btn = document.getElementById("color1");
+let color2Btn = document.getElementById("color2");
+let gradientBox = document.getElementById("gradientBox");
 
-var randomClr = document.getElementById("randomClr");
+let randomClr = document.getElementById("randomClr");
 
 //On window load, set color gradient for background and both color inputs
-window.onload = function test(){
+window.onload =  () => {
     gradientBox.style.background = "linear-gradient(" + color1Btn.value + "," + color2Btn.value + ")";
     
 }
 
 //Updates the gradient container to display whatever color input by user.
-function gradientCtrl() {
+const gradientCtrl = () => {
     gradientBox.style.background = "linear-gradient(" + color1Btn.value + "," + color2Btn.value + ")";
 }
 
 
 //Function that produces a random hex color code
-function getRandomColor(){
-var letters = "0123456789ABCDEF";
-    var color = "#";
-    var color2 = "#"
+const getRandomColor = () => {
+const letters = "0123456789ABCDEF";
+    const color = "#";
+    const color2 = "#";
     for (let i = 0; i < 6; i++) {
         color += letters[(Math.floor(Math.random() * 16))];   
     } 
@@ -57,9 +57,9 @@ var letters = "0123456789ABCDEF";
 }
 
 //Function that gets two random colors for the gradient and updates the gradient container
-function colorRandomizer(){
-    var color1 = getRandomColor();
-    var color2 = getRandomColor();
+const colorRandomizer = () => {
+    const color1 = getRandomColor();
+    const color2 = getRandomColor();
     
     color1Btn.value = color1;
     color2Btn.value = color2;
@@ -68,11 +68,14 @@ function colorRandomizer(){
 }
 
 //Function that starts the process
-function getRandomColors(){
+const getRandomColors = ()=> {
     colorRandomizer();
 }
-
 
 color1Btn.addEventListener("input", gradientCtrl);
 color2Btn.addEventListener("input", gradientCtrl);
 randomClr.addEventListener("click", getRandomColors);
+
+const addAniEmojiCont = () => {
+    const node = document.createElement()
+}
