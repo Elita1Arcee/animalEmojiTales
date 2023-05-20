@@ -27,14 +27,12 @@ userName.addEventListener("keydown", function(event) {
 var color1Btn = document.getElementById("color1");
 var color2Btn = document.getElementById("color2");
 var gradientBox = document.getElementById("gradientBox");
-var currentStyles = window.getComputedStyle(gradientBox, null);
-var bgColor = currentStyles.getPropertyValue("background");
+var currentStyles = window.getComputedStyle(gradientBox);
 
-function intialLoad() {
-    console.log(bgColor);
+window.onload = function test(){
+    gradientBox.style.background = "linear-gradient(" + color1Btn.value + "," + color2Btn.value + ")";
 }
 
-intialLoad();
 
 function gradientCtrl() {
     gradientBox.style.background = "linear-gradient(" + color1Btn.value + "," + color2Btn.value + ")";
