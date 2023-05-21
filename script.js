@@ -19,10 +19,7 @@ userName.addEventListener("keydown", (event) => {
         console.log("13");
         title.textContent = userName.value + "'s Animals";
         userName.value = "";
-        
-    } else{
-        console.log("Nope");
-    }
+    } 
 
 })
 
@@ -47,9 +44,9 @@ const gradientCtrl = () => {
 
 //Function that produces a random hex color code
 const getRandomColor = () => {
-const letters = "0123456789ABCDEF";
-    const color = "#";
-    const color2 = "#";
+let letters = "0123456789ABCDEF";
+    let color = "#";
+    // const color2 = "#";
     for (let i = 0; i < 6; i++) {
         color += letters[(Math.floor(Math.random() * 16))];   
     } 
@@ -58,8 +55,8 @@ const letters = "0123456789ABCDEF";
 
 //Function that gets two random colors for the gradient and updates the gradient container
 const colorRandomizer = () => {
-    const color1 = getRandomColor();
-    const color2 = getRandomColor();
+    let color1 = getRandomColor();
+    let color2 = getRandomColor();
     
     color1Btn.value = color1;
     color2Btn.value = color2;
@@ -68,7 +65,7 @@ const colorRandomizer = () => {
 }
 
 //Function that starts the process
-const getRandomColors = ()=> {
+const getRandomColors = () => {
     colorRandomizer();
 }
 
@@ -76,6 +73,17 @@ color1Btn.addEventListener("input", gradientCtrl);
 color2Btn.addEventListener("input", gradientCtrl);
 randomClr.addEventListener("click", getRandomColors);
 
+
+
+const giraffeBtn = document.getElementById('addGiraffe');
+
 const addAniEmojiCont = () => {
-    const node = document.createElement()
+    let animalDiv = document.createElement("div");
+    animalDiv.classList.add("zone", "green");
+    let emojiAnimalAdd = document.createTextNode('🦒');
+    animalDiv.appendChild(emojiAnimalAdd);
+    return document.getElementById('allAnimalCont').appendChild(animalDiv);
 }
+
+giraffeBtn.addEventListener("click", addAniEmojiCont);
+
