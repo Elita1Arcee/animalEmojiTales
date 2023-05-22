@@ -87,8 +87,9 @@ const addAniEmojiCont = () => {
 
 giraffeBtn.addEventListener("click", addAniEmojiCont);
 
-////
 
+//Object contains styling class names and extra emoji animals. makeAniCard makes the card and puts it into array.
+//getCard returns one card from the array and appends it to the grid container.
 
 const AniCard = {
     completeCard: [],
@@ -97,17 +98,18 @@ const AniCard = {
    makeAniCard() {
     const {completeCard, bgGradientColors, addOnEmojiAnimals} = this;
     for (let i = 0; i < addOnEmojiAnimals.length; i++) {
+        
         let animalDiv = document.createElement("div");
-        animalDiv.classList.add("zone", bgGradientColors[i]);
+         animalDiv.classList.add("zone", bgGradientColors[i]);
             let emojiAnimalAdd = document.createTextNode(addOnEmojiAnimals[i]);
-            completeCard.push(animalDiv.appendChild(emojiAnimalAdd));
-
-
+            animalDiv.appendChild(emojiAnimalAdd);
+            completeCard.push(animalDiv);
+        
     }
     
    },
    showTest(){
-    newCard = this.completeCard.pop();
+    let newCard = this.completeCard.pop();
     return document.getElementById('allAnimalCont').appendChild(newCard);
    }
 
