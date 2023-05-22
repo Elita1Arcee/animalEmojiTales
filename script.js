@@ -98,18 +98,17 @@ const AniCard = {
     const {completeCard, bgGradientColors, addOnEmojiAnimals} = this;
     for (let i = 0; i < addOnEmojiAnimals.length; i++) {
         let animalDiv = document.createElement("div");
-        for (let i = 0; i < addOnEmojiAnimals.length; i++) {
-            animalDiv.classList.add("zone", bgGradientColors[i]);
+        animalDiv.classList.add("zone", bgGradientColors[i]);
             let emojiAnimalAdd = document.createTextNode(addOnEmojiAnimals[i]);
             completeCard.push(animalDiv.appendChild(emojiAnimalAdd));
-        }
+
 
     }
     
    },
    showTest(){
-    
-    return this.completeCard.pop();
+    newCard = this.completeCard.pop();
+    return document.getElementById('allAnimalCont').appendChild(newCard);
    }
 
     
