@@ -88,5 +88,29 @@ const addAniEmojiCont = () => {
 giraffeBtn.addEventListener("click", addAniEmojiCont);
 
 ////
-const bgGradientColors = ['green', 'red', 'yellow', 'blue', 'purple', 'brown'];
-const addOnEmojiAnimals = ['🦒', '🐘', '🐨', '🐵', '🐶', '🐱'];
+
+
+const AniCard = {
+    completeCard: [],
+   bgGradientColors: ['green', 'red', 'yellow', 'blue', 'purple', 'brown'],
+   addOnEmojiAnimals: ['🦒', '🐘', '🐨', '🐵', '🐶', '🐱'],
+   makeAniCard() {
+    const {completeCard, bgGradientColors, addOnEmojiAnimals} = this;
+    for (let i = 0; i < addOnEmojiAnimals.length; i++) {
+        let animalDiv = document.createElement("div");
+        for (let i = 0; i < addOnEmojiAnimals.length; i++) {
+            animalDiv.classList.add("zone", bgGradientColors[i]);
+            let emojiAnimalAdd = document.createTextNode(addOnEmojiAnimals[i]);
+            completeCard.push(animalDiv.appendChild(emojiAnimalAdd));
+        }
+
+    }
+    
+   },
+   showTest(){
+    
+    return this.completeCard.pop();
+   }
+
+    
+}
