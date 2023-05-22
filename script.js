@@ -87,3 +87,6 @@ const addAniEmojiCont = () => {
 
 giraffeBtn.addEventListener("click", addAniEmojiCont);
 
+////
+const bgGradientColors = ['green', 'red', 'yellow', 'blue', 'purple', 'brown'];
+const addOnEmojiAnimals = ['🦒', '🐘', '🐨', '🐵', '🐶', '🐱'];
