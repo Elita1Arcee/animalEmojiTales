@@ -33,6 +33,7 @@ let randomClr = document.getElementById("randomClr");
 //On window load, set color gradient for background and both color inputs
 window.onload =  () => {
     gradientBox.style.background = "linear-gradient(" + color1Btn.value + "," + color2Btn.value + ")";
+    AniCard.makeAniCard();
     
 }
 
@@ -75,7 +76,7 @@ randomClr.addEventListener("click", getRandomColors);
 
 
 
-const giraffeBtn = document.getElementById('addGiraffe');
+const addAnimalBtn = document.getElementById('addAnimal');
 
 const addAniEmojiCont = () => {
     let animalDiv = document.createElement("div");
@@ -84,8 +85,6 @@ const addAniEmojiCont = () => {
     animalDiv.appendChild(emojiAnimalAdd);
     return document.getElementById('allAnimalCont').appendChild(animalDiv);
 }
-
-giraffeBtn.addEventListener("click", addAniEmojiCont);
 
 
 //Object contains styling class names and extra emoji animals. makeAniCard makes the card and puts it into array.
@@ -108,10 +107,17 @@ const AniCard = {
     }
     
    },
-   showTest(){
+   getCard(){
     let newCard = this.completeCard.pop();
     return document.getElementById('allAnimalCont').appendChild(newCard);
-   }
+   },
+
 
     
 }
+
+addAnimalBtn.addEventListener("click", () => {
+    AniCard.getCard();
+});
+
+
