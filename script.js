@@ -104,3 +104,20 @@ const AniCard = {
 addAnimalBtn.addEventListener("click", () => {
   AniCard.getCard();
 });
+
+class EmojiAnimal {
+  constructor(name, type, sound, story, colorPage, fact) {
+    this.name = name;
+    this.type = type;
+    this.sound = sound;
+    this.story = story;
+    this.colorPage = colorPage;
+    this.fact = fact;
+  }
+
+  introduce() {
+    console.log(`I am a ${this.name} and I say ${this.sound}.`);
+  }
+}
+
+const fox = new EmojiAnimal("fox", "", "rawr");

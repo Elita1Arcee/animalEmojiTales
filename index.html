@@ -92,60 +92,64 @@
       id="gradientBox"
       class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center gradientBox"
     >
-      <div class="col-md-5 p-lg-5 mx-auto my-5">
-        <div><h1 class="display-2" id="title">Sight Word Animals</h1></div>
-        <div>
-          <div class="input-group">
-            <input
-              id="userName"
-              type="text"
-              class="form-control"
-              placeholder="Your name"
-              aria-label="Your name"
-              aria-describedby="basic-addon2"
-            />
-            <div class="input-group-append">
-              <button
-                id="enterBtn"
-                class="btn btn-outline-secondary"
-                type="button"
-              >
-                Enter
-              </button>
-            </div>
-          </div>
+      <div class="col-md-5 p-lg-5 mx-auto my-5 userOptionsHolderCont">
+        <div class="userOptionsHolderLeft">
+          <div><h1 class="display-2" id="title">Sight Word Animals</h1></div>
           <div>
-            <div
-              class="input-group input-group-sm align-items-center justify-content-center p-3"
-            >
+            <div class="input-group">
               <input
-                type="color"
-                name="color1"
-                id="color1"
-                class=""
-                value="#9BFC73"
+                id="userName"
+                type="text"
+                class="form-control"
+                placeholder="Your name"
+                aria-label="Your name"
+                aria-describedby="basic-addon2"
               />
-              <input type="color" name="color2" id="color2" value="#66C6F1" />
-              <button
-                id="randomClr"
-                class="btn btn-outline-secondary mx-3"
-                type="button"
-              >
-                Different Colors
-              </button>
-              <button
-                id="addAnimal"
-                class="btn btn-outline-dark mx-3"
-                type="button"
-              >
-                Add Animal
-              </button>
+              <div class="input-group-append">
+                <button
+                  id="enterBtn"
+                  class="btn btn-outline-secondary"
+                  type="button"
+                >
+                  Enter
+                </button>
+              </div>
             </div>
+            <div>
+              <div
+                class="input-group input-group-sm align-items-center justify-content-center p-3"
+              >
+                <input
+                  type="color"
+                  name="color1"
+                  id="color1"
+                  class=""
+                  value="#9BFC73"
+                />
+                <input type="color" name="color2" id="color2" value="#66C6F1" />
+                <button
+                  id="randomClr"
+                  class="btn btn-outline-secondary mx-3"
+                  type="button"
+                >
+                  Different Colors
+                </button>
+                <button
+                  id="addAnimal"
+                  class="btn btn-outline-dark mx-3"
+                  type="button"
+                >
+                  Add Animal
+                </button>
+              </div>
 
-            <h3 id="color1Name"></h3>
-            <div id="color2Name"></div>
+              <h3 id="color1Name"></h3>
+              <div id="color2Name"></div>
+            </div>
           </div>
         </div>
+
+        <div class="userOptionsHolderRight"></div>
       </div>
     </div>
 
