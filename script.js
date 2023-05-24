@@ -97,7 +97,7 @@ const AniCard = {
   },
   getCard() {
     let newCard = this.completeCard.pop();
-    return document.getElementById("allAnimalCont").appendChild(newCard);
+    return document.getElementById("allAnimalCont").prepend(newCard);
   },
 };
 
