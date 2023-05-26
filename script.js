@@ -114,10 +114,4 @@ class EmojiAnimal {
     this.colorPage = colorPage;
     this.fact = fact;
   }
-
-  introduce() {
-    console.log(`I am a ${this.name} and I say ${this.sound}.`);
-  }
 }
-
-const fox = new EmojiAnimal("fox", "", "rawr");
