@@ -115,3 +115,9 @@ class EmojiAnimal {
     this.fact = fact;
   }
 }
+
+class EmojiAnimalInfo {
+  constructor(animalName, animalInfoShow, animalInfoPlay) = >{
+    
+  }
+}
