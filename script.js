@@ -114,10 +114,25 @@ class EmojiAnimal {
     this.colorPage = colorPage;
     this.fact = fact;
   }
+  start() {}
 }
 
 class EmojiAnimalInfo {
-  constructor(animalName, animalInfoShow, animalInfoPlay) = >{
-    
+  constructor(animalName, animalInfoShow, animalInfoPlay) {
+    this.animalName = animalName;
+    this.animalInfoShow = animalInfoShow;
+    this.animalInfoPlay = animalInfoPlay;
+
+    this.animalName.addEventListener("click", this.giveAnimalName.bind(this));
+  }
+
+  giveAnimalName() {
+    let idName = this.animalName.id;
+    console.log(idName);
   }
 }
+
+const animalElements = document.querySelectorAll(".zone");
+animalElements.forEach((animalElement) => {
+  const animalEmoji = new EmojiAnimalInfo(animalElement);
+});
