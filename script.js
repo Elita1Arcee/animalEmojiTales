@@ -85,19 +85,33 @@ const AniCard = {
   completeCard: [],
   bgGradientColors: ["green", "red", "yellow", "blue", "purple", "brown"],
   addOnEmojiAnimals: ["🦒", "🐘", "🐨", "🐵", "🐶", "🐱"],
+  addOnAnimalNames: ["giraffe", "elephant", "koala", "monkey", "dog", "cat"],
   makeAniCard() {
     const { completeCard, bgGradientColors, addOnEmojiAnimals } = this;
     for (let i = 0; i < addOnEmojiAnimals.length; i++) {
       let animalDiv = document.createElement("div");
+      animalDiv.setAttribute("id", this.addOnAnimalNames[i]);
       animalDiv.classList.add("zone", bgGradientColors[i]);
       let emojiAnimalAdd = document.createTextNode(addOnEmojiAnimals[i]);
       animalDiv.appendChild(emojiAnimalAdd);
       completeCard.push(animalDiv);
     }
   },
+  //this function also attaches the card id and adds an event listener to each card
   getCard() {
     let newCard = this.completeCard.pop();
+    let sayCard = [];
+    sayCard.push(newCard);
+    sayCard.forEach((card) => {
+      let addOnAnimalName = card.id;
+      card.addEventListener("click", this.getName.bind(addOnAnimalName));
+    });
     return document.getElementById("allAnimalCont").prepend(newCard);
+  },
+  //this function displays the name of the added on cards
+  getName() {
+    let name = this;
+    console.log(name);
   },
 };
 
@@ -105,18 +119,19 @@ addAnimalBtn.addEventListener("click", () => {
   AniCard.getCard();
 });
 
-class EmojiAnimal {
-  constructor(name, type, sound, story, colorPage, fact) {
-    this.name = name;
-    this.type = type;
-    this.sound = sound;
-    this.story = story;
-    this.colorPage = colorPage;
-    this.fact = fact;
-  }
-  start() {}
-}
+// class EmojiAnimal {
+//   constructor(name, type, sound, story, colorPage, fact) {
+//     this.name = name;
+//     this.type = type;
+//     this.sound = sound;
+//     this.story = story;
+//     this.colorPage = colorPage;
+//     this.fact = fact;
+//   }
+//   start() {}
+// }
 
+//this class displays the names of the animals on screen at onload
 class EmojiAnimalInfo {
   constructor(animalName, animalInfoShow, animalInfoPlay) {
     this.animalName = animalName;
