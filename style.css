@@ -10,6 +10,13 @@
   display: flex;
 }
 
+.userOptionsHolderRight {
+  display: block;
+  padding: 2em;
+  text-align: center;
+  font-size: 5em;
+}
+
 .gradientBox {
   background: linear-gradient(purple, yellow);
 }

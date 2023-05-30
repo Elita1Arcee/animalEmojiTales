@@ -106,12 +106,20 @@ const AniCard = {
       let addOnAnimalName = card.id;
       card.addEventListener("click", this.getName.bind(addOnAnimalName));
     });
-    return document.getElementById("allAnimalCont").prepend(newCard);
+    for (let index = -1; index < this.completeCard.length; index++) {
+      return document.getElementById("allAnimalCont").prepend(newCard);
+    }
   },
-  //this function displays the name of the added on cards
+  //this function displays the name of the optional add-on animals and removes them on click
   getName() {
     let name = this;
-    console.log(name);
+    let displayCont = document.getElementById("emojiAnimalInfoCont");
+    let showName = document.getElementById("aniEmojiNameDisplay");
+    if (showName.textContent != name) {
+      showName.textContent = name;
+    } else {
+      showName.textContent = "";
+    }
   },
 };
 
