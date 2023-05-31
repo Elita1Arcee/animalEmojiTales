@@ -151,7 +151,14 @@ class EmojiAnimalInfo {
 
   giveAnimalName() {
     let idName = this.animalName.id;
-    console.log(idName);
+    let displayCont = document.getElementById("emojiAnimalInfoCont");
+    displayCont.classList.add("zone", "white");
+    let showName = document.getElementById("aniEmojiNameDisplay");
+    if (showName.textContent != idName) {
+      showName.textContent = idName;
+    } else {
+      showName.textContent = "";
+    }
   }
 }
 

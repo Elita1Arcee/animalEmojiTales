@@ -8,13 +8,19 @@
 
 .userOptionsHolderCont {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#emojiAnimalInfoCont {
+  margin-left: 40px;
 }
 
 .userOptionsHolderRight {
+  padding: 20px;
   display: block;
-  padding: 2em;
   text-align: center;
-  font-size: 5em;
+  font-size: 0.5em;
 }
 
 .gradientBox {
@@ -23,7 +29,7 @@
 
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-template-rows: 1fr;
   gap: 20px;
 }
@@ -246,4 +252,40 @@
   background: -ms-linear-gradient(top, #f6e6b4 0%, #ed9017 100%); /* IE10+ */
   background: linear-gradient(top, #f6e6b4 0%, #ed9017 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6e6b4', endColorstr='#ed9017',GradientType=0 ); /* IE6-9 */
+}
+
+/***********************************************************************
+ *  White Background
+ **********************************************************************/
+.white {
+  background: #dfe9f3; /* Old browsers */
+  background: -moz-linear-gradient(to top, #dfe9f3 0%, white 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #dfe9f3),
+    color-stop(100%, white)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #dfe9f3 0%,
+    white 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #dfe9f3 0%,
+    white 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #dfe9f3 0%, white 100%); /* IE10+ */
+  background: linear-gradient(top, #dfe9f3 0%, white 100%); /* W3C */
+
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  -o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 }
