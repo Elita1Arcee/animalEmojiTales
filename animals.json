@@ -14,39 +14,39 @@
     },
     {
       "name": "lion",
-      "story": ""
+      "story": " I am a lion."
     },
     {
       "name": "tiger",
-      "story": ""
+      "story": "The tiger is big."
     },
     {
       "name": "mouse",
-      "story": ""
+      "story": "The mouse is in the house"
     },
     {
       "name": "unicorn",
-      "story": ""
+      "story": "Fluffy, fluffy, unicorn."
     },
     {
       "name": "dragon",
-      "story": ""
+      "story": "The dragon soars. The dragon roars."
     },
     {
       "name": "pig",
-      "story": ""
+      "story": "The pig loves to run to the mud."
     },
     {
       "name": "wolf",
-      "story": ""
+      "story": "The wolf howls at night."
     },
     {
       "name": "panda",
-      "story": ""
+      "story": "I see a panda. It eats a tree."
     },
     {
       "name": "bear",
-      "story": ""
+      "story": "The bear snores on the cave floor."
     }
   ]
 }

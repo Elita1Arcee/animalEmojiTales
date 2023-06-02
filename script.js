@@ -145,7 +145,23 @@ class EmojiAnimalInfo {
     displayCont.classList.add("zone", "white");
     let showName = document.getElementById("aniEmojiNameDisplay");
     if (showName.textContent != idName) {
-      showName.textContent = idName + " " + idPic.textContent;
+      fetch("animals.json").then((res) => {
+        res
+          .json()
+          .then((data) => {
+            let animalData = data.animals;
+            for (let animal of animalData) {
+              // console.log(animal);
+              if (animal.name == idName) {
+                showName.textContent =
+                  idName + " " + idPic.textContent + " " + animal.story;
+              }
+            }
+          })
+          .catch((err) => {
+            console.log("Did not work!!!!");
+          });
+      });
     } else {
       showName.textContent = "";
     }

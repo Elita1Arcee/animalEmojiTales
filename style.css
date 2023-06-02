@@ -19,8 +19,7 @@
 .userOptionsHolderRight {
   padding: 20px;
   display: block;
-  text-align: center;
-  font-size: 0.5em;
+  font-size: 0.15em;
 }
 
 .gradientBox {
@@ -258,6 +257,7 @@
  *  White Background
  **********************************************************************/
 .white {
+  padding: 30px;
   background: #dfe9f3; /* Old browsers */
   background: -moz-linear-gradient(to top, #dfe9f3 0%, white 100%); /* FF3.6+ */
   background: -webkit-gradient(
