@@ -1,0 +1,52 @@
+{
+  "animals": [
+    {
+      "name": "fox",
+      "story": "In the woods, a sly fox goes,\nLook at it. Go. Go. Go.\nWith fur red and eyes so bright,\nIt hunts at night and out of sight."
+    },
+    {
+      "name": "rabbit",
+      "story": "Hop, hop, hop,\nThe rabbit won' stop.\nWith long ears and fluffy tail,\nIt jumps and jumps without fail."
+    },
+    {
+      "name": "frog",
+      "story": "In the pond,\na frog does dwell, \nJumping high, and croaking as well. \nWith eyes wide \nit waits for a fly, \nLeaping swiftly, reaching the sky."
+    },
+    {
+      "name": "lion",
+      "story": ""
+    },
+    {
+      "name": "tiger",
+      "story": ""
+    },
+    {
+      "name": "mouse",
+      "story": ""
+    },
+    {
+      "name": "unicorn",
+      "story": ""
+    },
+    {
+      "name": "dragon",
+      "story": ""
+    },
+    {
+      "name": "pig",
+      "story": ""
+    },
+    {
+      "name": "wolf",
+      "story": ""
+    },
+    {
+      "name": "panda",
+      "story": ""
+    },
+    {
+      "name": "bear",
+      "story": ""
+    }
+  ]
+}

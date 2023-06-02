@@ -78,8 +78,8 @@ randomClr.addEventListener("click", getRandomColors);
 
 const addAnimalBtn = document.getElementById("addAnimal");
 
-//Object contains styling class names and extra emoji animals. makeAniCard makes the card and puts it into array.
-//getCard returns one card from the array and appends it to the grid container.
+// Object contains styling class names and extra emoji animals. makeAniCard makes the card and puts it into array.
+// getCard returns one card from the array and appends it to the grid container.
 
 const AniCard = {
   completeCard: [],
@@ -127,35 +127,25 @@ addAnimalBtn.addEventListener("click", () => {
   AniCard.getCard();
 });
 
-// class EmojiAnimal {
-//   constructor(name, type, sound, story, colorPage, fact) {
-//     this.name = name;
-//     this.type = type;
-//     this.sound = sound;
-//     this.story = story;
-//     this.colorPage = colorPage;
-//     this.fact = fact;
-//   }
-//   start() {}
-// }
-
 //this class displays the names of the animals on screen at onload
 class EmojiAnimalInfo {
-  constructor(animalName, animalInfoShow, animalInfoPlay) {
+  constructor(animalName, animalPoem, animalInfoPlay) {
     this.animalName = animalName;
-    this.animalInfoShow = animalInfoShow;
+    this.animalPoem = animalPoem;
     this.animalInfoPlay = animalInfoPlay;
 
-    this.animalName.addEventListener("click", this.giveAnimalName.bind(this));
+    this.animalName.addEventListener("click", this.display.bind(this));
   }
 
-  giveAnimalName() {
+  display() {
     let idName = this.animalName.id;
+    let idPic = document.getElementById(idName);
+
     let displayCont = document.getElementById("emojiAnimalInfoCont");
     displayCont.classList.add("zone", "white");
     let showName = document.getElementById("aniEmojiNameDisplay");
     if (showName.textContent != idName) {
-      showName.textContent = idName;
+      showName.textContent = idName + " " + idPic.textContent;
     } else {
       showName.textContent = "";
     }
