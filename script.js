@@ -127,48 +127,50 @@ addAnimalBtn.addEventListener("click", () => {
   AniCard.getCard();
 });
 
-//this class displays the names of the animals on screen at onload
 class EmojiAnimalInfo {
-  constructor(animalName, animalPoem, animalInfoPlay) {
+  //this class initializes the instance of EmojiAnimalInfo. By binding 'this',
+  //it ensures the correct response, for the current card, or instance of EmojiAnimalInfo
+  constructor(animalName, animalData) {
     this.animalName = animalName;
-    this.animalPoem = animalPoem;
-    this.animalInfoPlay = animalInfoPlay;
-
+    this.animalData = animalData;
     this.animalName.addEventListener("click", this.display.bind(this));
   }
 
+  //attaches id name and classes for the design of card. IdName is also
+  //used to get the correct animal data
   display() {
     let idName = this.animalName.id;
     let idPic = document.getElementById(idName);
-
     let displayCont = document.getElementById("emojiAnimalInfoCont");
     displayCont.classList.add("zone", "white");
     let showName = document.getElementById("aniEmojiNameDisplay");
     if (showName.textContent != idName) {
-      fetch("animals.json").then((res) => {
-        res
-          .json()
-          .then((data) => {
-            let animalData = data.animals;
-            for (let animal of animalData) {
-              // console.log(animal);
-              if (animal.name == idName) {
-                showName.textContent =
-                  idName + " " + idPic.textContent + " " + animal.story;
-              }
-            }
-          })
-          .catch((err) => {
-            console.log("Did not work!!!!");
-          });
-      });
+      const animal = this.animalData[idName];
+      if (animal) {
+        showName.textContent =
+          idName + " " + idPic.textContent + " " + animal.story;
+      }
     } else {
       showName.textContent = "";
     }
   }
 }
 
-const animalElements = document.querySelectorAll(".zone");
-animalElements.forEach((animalElement) => {
-  const animalEmoji = new EmojiAnimalInfo(animalElement);
-});
+// fetches the data from the .json file. after a good response the data is stored in an object.
+// the processed data is passed as an argument to the EmmojiAnimalInfo constructor
+fetch("animals.json")
+  .then((res) => res.json())
+  .then((data) => {
+    const animalData = {};
+    for (const animal of data.animals) {
+      animalData[animal.name] = animal;
+    }
+
+    const animalElements = document.querySelectorAll(".zone");
+    animalElements.forEach((animalElement) => {
+      const animalEmoji = new EmojiAnimalInfo(animalElement, animalData);
+    });
+  })
+  .catch((err) => {
+    console.log("Error loading animal data:", err);
+  });
