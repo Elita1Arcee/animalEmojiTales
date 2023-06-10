@@ -14,39 +14,39 @@
     },
     {
       "name": "lion",
-      "story": " I am a lion."
+      "story": "In the wild,\na lion roams. \nIts' yellow mane, \nthe wind blows. \nThe king of beasts, \nbrave and bold.\nIn the grasslands, its' story unfolds."
     },
     {
       "name": "tiger",
-      "story": "The tiger is big."
+      "story": "In the jungle,\na tiger prowls. \nGraceful and stealthy, \nit makes no sounds. \nWith coat of orange and black, \nit hides and waits, for a tasty snack."
     },
     {
       "name": "mouse",
-      "story": "The mouse is in the house"
+      "story": "In a cozy hole,\na gray mouse stays. \nTiny and shy, \nit darts and plays. \nGentle and quiet, \nit's quick on its' feet.\nIt runs back home, for its time to sleep."
     },
     {
       "name": "unicorn",
-      "story": "Fluffy, fluffy, unicorn."
+      "story": "In a secret meadow,\na beautiful sight. \nA unicorn prances, \nin the gold sunlight. \nIts mane sparkles, \nand its horn shines.\nIt runs across the rainbow,\n so high in the sky."
     },
     {
       "name": "dragon",
-      "story": "The dragon soars. The dragon roars."
+      "story": "In tales long ago,\na dragon soars. \nThe people run, \nand slam their doors. \nWith scales of iron, \nand breath of fire.\nIt is tamed by no one, and it does, as it desires."
     },
     {
       "name": "pig",
-      "story": "The pig loves to run to the mud."
+      "story": "They come in lots of colors,\nnot just pink and white. \nIt oinks and plays, \nthroughout the day, but snores at night. \nIt loves to get dirty, \nand has a curly tail.\nI bring it food, in my metal pail."
     },
     {
       "name": "wolf",
-      "story": "The wolf howls at night."
+      "story": "In the moonlit woods,\na wolf on the mountain high. \nHowls beautifully, to the star filled sky. \nIt listens, and looks out,\neyes shining and keen. \nIt peers out at the forest,\nit is peaceful and serene."
     },
     {
       "name": "panda",
-      "story": "I see a panda. It eats a tree."
+      "story": ""
     },
     {
       "name": "bear",
-      "story": "The bear snores on the cave floor."
+      "story": ""
     }
   ]
 }
