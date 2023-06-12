@@ -19,7 +19,6 @@
 .userOptionsHolderRight {
   padding: 20px;
   display: block;
-  font-size: 0.15em;
 }
 
 .gradientBox {
@@ -31,6 +30,13 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-template-rows: 1fr;
   gap: 20px;
+}
+
+.headTitle{
+  font-size: 3.5rem;
+}
+.poemBody{
+  font-size: 1.5rem;
 }
 
 .zone {
@@ -257,7 +263,8 @@
  *  White Background
  **********************************************************************/
 .white {
-  padding: 30px;
+  padding: 24px;
+  max-width: 25rem;
   background: #dfe9f3; /* Old browsers */
   background: -moz-linear-gradient(to top, #dfe9f3 0%, white 100%); /* FF3.6+ */
   background: -webkit-gradient(
@@ -288,4 +295,6 @@
     inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
   box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
     inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    text-align: center;
+    
 }

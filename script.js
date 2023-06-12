@@ -144,14 +144,22 @@ class EmojiAnimalInfo {
     let displayCont = document.getElementById("emojiAnimalInfoCont");
     displayCont.classList.add("zone", "white");
     let showName = document.getElementById("aniEmojiNameDisplay");
+    let showStory = document.getElementById("aniEmojiNameStory");
+    let playVoiceBtn = document.createElement("button");
+    let buttonText = document.createTextNode("Play");
+    playVoiceBtn.appendChild(buttonText);
+
     if (showName.textContent != idName) {
       const animal = this.animalData[idName];
       if (animal) {
+       let photo = idPic.textContent
         showName.textContent =
-          idName + " " + idPic.textContent + " " + animal.story;
+          idName + "\n" + idPic.textContent + "\n" + playVoiceBtn;
+          showStory.textContent = animal.story;
       }
     } else {
       showName.textContent = "";
+      
     }
   }
 }

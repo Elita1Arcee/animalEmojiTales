@@ -3,7 +3,8 @@
     {
       "name": "fox",
       "story": "In the woods, a sly fox goes,\nLook at it. Go. Go. Go.\nWith fur red and eyes so bright,\nIt hunts at night and out of sight."
-    },
+    }
+    ,
     {
       "name": "rabbit",
       "story": "Hop, hop, hop,\nThe rabbit won' stop.\nWith long ears and fluffy tail,\nIt jumps and jumps without fail."
@@ -42,11 +43,11 @@
     },
     {
       "name": "panda",
-      "story": ""
+      "story": "In a bamboo forest,\na gentle panda dwells. \nIts' colors are black and white, \n but its beauty is not pale. \nIt has a peaceful gaze, \n eating leaves in a green maze."
     },
     {
       "name": "bear",
-      "story": ""
+      "story": "Among the tall, tall trees, \n a bear roams free. \n A body big and strong, it plays, travels, and eats all day long. \nFurry and grand, \n a wonderful animal, in every land."
     }
   ]
 }
