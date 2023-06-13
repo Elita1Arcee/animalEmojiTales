@@ -165,6 +165,7 @@ class EmojiAnimalInfo {
     }
   }
 
+  //adding in the Web speech api. Creates a new instance and reads the data from the json file for the specific animal.
   hearInfo(animal) {
     let utterance = new SpeechSynthesisUtterance(animal.story);
     utterance.rate = 1.2;
