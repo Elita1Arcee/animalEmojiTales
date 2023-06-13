@@ -2,12 +2,12 @@
   "animals": [
     {
       "name": "fox",
-      "story": "In the woods, a sly fox goes,\nLook at it. Go. Go. Go.\nWith fur red and eyes so bright,\nIt hunts at night and out of sight."
+      "story": "In the woods, a sly fox goes,\nLook at it go, go, go.\nWith fur red and eyes so bright,\nIt hunts at night and out of sight."
     }
     ,
     {
       "name": "rabbit",
-      "story": "Hop, hop, hop,\nThe rabbit won' stop.\nWith long ears and fluffy tail,\nIt jumps and jumps without fail."
+      "story": "Hop, hop, hop,\nThe rabbit won't stop.\nWith long ears and fluffy tail,\nIt jumps and jumps without fail."
     },
     {
       "name": "frog",

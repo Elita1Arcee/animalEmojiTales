@@ -146,25 +146,30 @@ class EmojiAnimalInfo {
     let showName = document.getElementById("aniEmojiNameDisplay");
     let showStory = document.getElementById("aniEmojiNameStory");
     let playVoiceBtn = document.createElement("button");
+    playVoiceBtn.setAttribute("id", "hearVoiceBtn")
+    playVoiceBtn.classList.add("playButton");
     playVoiceBtn.textContent = "Hear";
 
     if (showName.textContent != idName) {
       const animal = this.animalData[idName];
       
       if (animal) {
-        
         showName.textContent =
           idName + "\n" + idPic.textContent + "\n";
           showStory.textContent = animal.story;
           showName.appendChild(playVoiceBtn);
+          playVoiceBtn.addEventListener("click", () => this.hearInfo(animal))
       }
     } else {
       showName.textContent = "";
     }
   }
 
-  hearInfo() {
-    console.log("animal info playing")
+  hearInfo(animal) {
+    let utterance = new SpeechSynthesisUtterance(animal.story);
+    utterance.rate = 1.2;
+    utterance.pitch = 1.5;
+speechSynthesis.speak(utterance);
   }
 }
 
