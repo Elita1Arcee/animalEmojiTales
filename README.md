@@ -1,1 +1,2 @@
 # animalEmojiTales
+Enjoy this app. Drew inspiration from a lesson on ZTM. Occupies my children for a few moments. Hopefully it will buy you a few free moments too. It uses emoji animals (text) for the images. Web speech api for the text to speech. I started to work on a way to dynamically add more animals, however, I need to come up with more poems first. I am considering adding a coloring feature to it. However, I am still deciding the best way to achieve it.
