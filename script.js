@@ -3,6 +3,7 @@
 let enterBtn = document.getElementById("enterBtn");
 let userName = document.getElementById("userName");
 let title = document.getElementById("title");
+let gameOptions = document.getElementById("gameOn");
 
 // On click get name from user input and use it to update the title
 enterBtn.addEventListener("click", () => {
@@ -78,10 +79,12 @@ randomClr.addEventListener("click", getRandomColors);
 
 const addAnimalBtn = document.getElementById("addAnimal");
 
+
 // Object contains styling class names and extra emoji animals. makeAniCard makes the card and puts it into array.
 // getCard returns one card from the array and appends it to the grid container.
 
 const AniCard = {
+
   completeCard: [],
   bgGradientColors: ["green", "red", "yellow", "blue", "purple", "brown"],
   addOnEmojiAnimals: ["🦒", "🐘", "🐨", "🐵", "🐶", "🐱"],
@@ -122,12 +125,10 @@ const AniCard = {
     }
   },
   getGame(){
-    let gameOptions = document.getElementById("gameOn")
-    gameOptions.addEventListener("click", () =>{
-      console.log("Game is on!!")
-    })
+    console.log('Game is on!!!')
   }
 };
+
 
 addAnimalBtn.addEventListener("click", () => {
   AniCard.getCard();
