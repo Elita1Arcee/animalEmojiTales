@@ -121,6 +121,12 @@ const AniCard = {
       showName.textContent = "";
     }
   },
+  getGame(){
+    let gameOptions = document.getElementById("gameOn")
+    gameOptions.addEventListener("click", () =>{
+      console.log("Game is on!!")
+    })
+  }
 };
 
 addAnimalBtn.addEventListener("click", () => {
@@ -172,6 +178,12 @@ class EmojiAnimalInfo {
     utterance.pitch = 1.5;
 speechSynthesis.speak(utterance);
   }
+
+  matchGame() {
+
+  }
+
+
 }
 
 // fetches the data from the .json file. after a good response the data is stored in an object.
