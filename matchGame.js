@@ -8,6 +8,31 @@ class Memory {
         this.flippedCards = [];
     }
        initGame() {
+        this.makeMemCards();
+        let memGameTable = document.getElementById("gameTable");
+        const memGameBoard = document.getElementById("gameBoard");
+        this.gameContainerElement = memGameBoard;
+        const memTitleHolder = document.createElement('div');
+        const memTitle = document.createTextNode("Select your number of cards to match")
+        const memTitleh2 = document.createElement("h2");
+        memTitleh2.appendChild(memTitle);
+        memTitleHolder.appendChild(memTitleh2);
+        memGameTable.appendChild(memTitleHolder);
+        const threeCardGamebtn = document.createElement("button");
+        const threeCardGame = document.createTextNode("Match 3 Cards");
+        threeCardGamebtn.appendChild(threeCardGame);
+        memGameTable.appendChild(threeCardGamebtn);
+        threeCardGamebtn.addEventListener("click", () =>{
+            console.log('beginner level');
+            this.startThreeCardGame();
+        })
+        
+        // memoryCompleteCards.map(memCards =>{
+        //     memGameBoard.appendChild(memCards);
+        // })
+    }
+
+    makeMemCards() {
         let memoryCompleteCards = [];
         const bgGradientColors = ["green", "red", "yellow", "blue", "purple", "brown"];
         const memoryAniEmojis =  ["🦒", "🐘", "🐨", "🐵", "🐶", "🐱", "🦊", "🐰", "🐸", "🦁", "🐯", "🐭", "🦄", "🐲", "🐷", "🐺", "🐼", "🐻"];
@@ -22,19 +47,39 @@ class Memory {
         memoryCompleteCards.push(memoryAnimalDiv);
        
     })
-    let memGameBoard = document.getElementById("gameBoard");
+    
     for (let index = 0; index < memoryCompleteCards.length; index++) {
         const bgGradientColorIndex = index % bgGradientColors.length;
         const bgColors = bgGradientColors[bgGradientColorIndex];
-        console.log(bgColors);
         memoryCompleteCards[index].classList.add(bgColors);
     }
-    console.log(memoryCompleteCards);
-    memoryCompleteCards.map(memCards =>{
-        memGameBoard.appendChild(memCards);
-    })
-    }
     
+    this.cards = memoryCompleteCards;
+   
+    }
+
+    shuffleMemCards(array) {
+        const mixedUpMemCards = [...this.cards];
+        for (let index = mixedUpMemCards.length; index > 0; index--) {
+            const element1 = Math.floor(Math.random() * (index + 1));
+            [mixedUpMemCards[index], mixedUpMemCards[element1]] = [mixedUpMemCards[element1], mixedUpMemCards[index]]
+        }
+        return mixedUpMemCards;
+    }
+
+    startThreeCardGame(){
+        let threeCards = []
+        let mixer = this.shuffleMemCards(this.cards);
+        for (let index = 0; index < 3; index++) {
+            threeCards.push(mixer.pop())
+        }
+        console.log(threeCards);
+        threeCards.map((card, index) =>{
+            this.gameContainerElement.appendChild(threeCards[index]);
+        })
+        
+    }
+   
     }
 
     let test1 = new Memory;
