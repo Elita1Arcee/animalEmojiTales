@@ -46,30 +46,34 @@ class Memory {
         const memoryAniEmojisNames = ["Giraffe", "Elephant", "Koala", "Monkey", "Dog", "Cat", "Fox", "Rabbit", "Frog", "Lion", "Tiger", "Mouse", "Unicorn", "Dragon", "Pig", "Wolf", "Panda", "Bear"];
 
         const memoryAniCards = memoryAniEmojis.map((card, i) =>{
+            const bgGradientColorIndex = i % bgGradientColors.length;
+            const bgColors = bgGradientColors[bgGradientColorIndex];
+            
             let frontC = document.createElement("div");
             let backC = document.createElement("div");
            
-            frontC.classList.add("side", "back");
-            backC.classList.add("side");
+            frontC.classList.add("side", "back", "white");
+            backC.classList.add("side", bgColors);
+            console.log(backC);
             let memoryAnimalDivCW = document.createElement("div");
-
+            
             let emojiTextNode = document.createTextNode(card);
+            let namesBox = document.createElement('div');
+            let names = document.createTextNode(memoryAniEmojisNames[i]);
+            namesBox.classList.add('namesFont');
+            namesBox.appendChild(names);
+            
             backC.appendChild(emojiTextNode);
-
+            backC.appendChild(namesBox);
            
             memoryAnimalDivCW.classList.add("zone");
-      
-            memoryAnimalDivCW.appendChild(frontC);
             memoryAnimalDivCW.appendChild(backC);
+            memoryAnimalDivCW.appendChild(frontC);
+            
 
             memoryCompleteCards.push(memoryAnimalDivCW); 
     })
     
-    for (let index = 0; index < memoryCompleteCards.length; index++) {
-        const bgGradientColorIndex = index % bgGradientColors.length;
-        const bgColors = bgGradientColors[bgGradientColorIndex];
-        memoryCompleteCards[index].classList.add(bgColors);
-    }
     
     this.cards = memoryCompleteCards;
     console.log(this.cards);
@@ -117,6 +121,8 @@ class Memory {
         gameOfSix.map((card, index) =>{
             this.gameContainerElement.appendChild(card);
         });
+
+
     }
 
     // startFiveCardGame(){
@@ -130,6 +136,24 @@ class Memory {
     //         this.gameContainerElement.appendChild(fiveCards[index]);
     //     })
     // }
+
+    isMatch(card1, card2) {
+        if (card1 == card2) {
+            this.scoreGameMatch();
+        } else {
+            this.scoreGameMiss();
+      }
+    
+      scoreGameMatch() {
+        // Listens for onclick for one card and flips it over
+        // Listens for onclick of second card, flips it over
+        // Checks if both cards that are flipped over match (using isMatch method)
+        // If so, remove those two cards and update Matches by 1
+        // If not, flip both cards back over, and update Misses by 1
+      }
+      scoreGameMiss(){
+
+      }
    
     }
 

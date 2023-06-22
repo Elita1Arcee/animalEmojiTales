@@ -10,18 +10,22 @@ body {
     gap: 20px;
   }
 
+  .namesFont{
+    font-size: 2rem !important;
+  }
+
 
 .zone {
     cursor: pointer;
     text-align: center;
-    font-size: 10em;
+    font-size: 8em;
     border-radius: 4px;
     border: 1px solid #bbb;
-    margin:100px;
-
     position: relative;
     transition: transform 1.5s ease;
     transform-style: preserve-3d;
+    width: 250px;
+    height: 250px;
     perspective: 150rem;
   }
 
@@ -29,14 +33,6 @@ body {
   .hideMe{
     display: none;
   }
-
-  /* .side{
-    position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  backface-visibility: hidden;
-  } */
 
 
   .side {
@@ -46,9 +42,7 @@ body {
     backface-visibility: hidden;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
 }
 
 
@@ -56,16 +50,6 @@ body {
     background-color: white;
     transform: rotateY(-180deg);
 }
-
-
-  /* .back {
-    background-color: white;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0 10px;
-    transform: rotateY(-180deg);
-  } */
 
   .flip{
     transform: rotateY(180deg);
