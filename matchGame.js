@@ -48,24 +48,31 @@ class Memory {
         const memoryAniCards = memoryAniEmojis.map((card, i) =>{
             let frontC = document.createElement("div");
             let backC = document.createElement("div");
+           
             frontC.classList.add("side", "back");
-            let memoryAnimalDiv = document.createElement("div");
-            memoryAnimalDiv.setAttribute("id", memoryAniEmojisNames[i]);
-            memoryAnimalDiv.classList.add("zone");
-          let memoryAnimalAdd = document.createTextNode(memoryAniEmojis[i]);
-          frontC.appendChild(memoryAnimalAdd);
-            memoryAnimalDiv.appendChild(memoryAnimalAdd);
-            memoryAnimalDiv.classList.add("flip");
-            memoryCompleteCards.push(memoryAnimalDiv); 
-    })
+            backC.classList.add("side");
+            let memoryAnimalDivCW = document.createElement("div");
 
+            let emojiTextNode = document.createTextNode(card);
+            backC.appendChild(emojiTextNode);
+
+           
+            memoryAnimalDivCW.classList.add("zone");
+      
+            memoryAnimalDivCW.appendChild(frontC);
+            memoryAnimalDivCW.appendChild(backC);
+
+            memoryCompleteCards.push(memoryAnimalDivCW); 
+    })
     
     for (let index = 0; index < memoryCompleteCards.length; index++) {
         const bgGradientColorIndex = index % bgGradientColors.length;
         const bgColors = bgGradientColors[bgGradientColorIndex];
         memoryCompleteCards[index].classList.add(bgColors);
     }
+    
     this.cards = memoryCompleteCards;
+    console.log(this.cards);
     }
 
     cloneDomElement(element) {
@@ -100,16 +107,16 @@ class Memory {
         gameOfSix = this.shuffleMemCards(gameOfSix);
         console.log(gameOfSix);
         
-        gameOfSix.map((card, index) =>{
-            this.gameContainerElement.appendChild(card);
-        });
-
         gameOfSix.map((gmSixCard, i) =>{
             gmSixCard.addEventListener("click", () =>{
                 console.log("I was clicked");
                 gmSixCard.classList.toggle("flip");
             });
         }); 
+        
+        gameOfSix.map((card, index) =>{
+            this.gameContainerElement.appendChild(card);
+        });
     }
 
     // startFiveCardGame(){
