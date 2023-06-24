@@ -14,20 +14,22 @@ class Memory {
         memGameBoard.classList.add("memFlex");
         this.gameContainerElement = memGameBoard;
         const memTitleHolder = document.createElement('div');
-        const memTitle = document.createTextNode("Select your number of cards to match")
+        const memTitle = document.createTextNode("Select your number of cards to match");
         const memTitleh2 = document.createElement("h2");
         memTitleh2.appendChild(memTitle);
         memTitleHolder.appendChild(memTitleh2);
         memGameTable.appendChild(memTitleHolder);
         const gmBtnsHolder = document.createElement("div")
         const threeCardGamebtn = document.createElement("button");
+        threeCardGamebtn.classList.add('btn', 'btn-success', 'mx-2');
         const threeCardGame = document.createTextNode("Easy- 3 Matches");
-        const fiveCardGamebtn = document.createElement("button");
-        const fiveCardGame = document.createTextNode("Medium - 5 Matches");
+        const sixCardGamebtn = document.createElement("button");
+        sixCardGamebtn.classList.add('btn', 'btn-warning', 'mx-2')
+        const sixCardGame = document.createTextNode("Medium - 6 Matches");
         threeCardGamebtn.appendChild(threeCardGame);
-        fiveCardGamebtn.appendChild(fiveCardGame);
+        sixCardGamebtn.appendChild(sixCardGame);
         gmBtnsHolder.appendChild(threeCardGamebtn);
-        gmBtnsHolder.appendChild(fiveCardGamebtn);
+        gmBtnsHolder.appendChild(sixCardGamebtn);
         memGameTable.appendChild(gmBtnsHolder);
         
         threeCardGamebtn.addEventListener("click", () =>{
@@ -36,8 +38,8 @@ class Memory {
             memTitleh2.classList.add("hideMe");
             gmBtnsHolder.classList.add('hideMe');
         })
-        fiveCardGamebtn.addEventListener("click", () =>{
-            this.startFiveCardGame();
+        sixCardGamebtn.addEventListener("click", () =>{
+            this.startSixCardGame();
             memTitleh2.classList.add("hideMe");
             gmBtnsHolder.classList.add('hideMe');
         })
@@ -126,24 +128,24 @@ class Memory {
         });
     }
 
-    startFiveCardGame(){
-        let fiveCards = []
-        let gameOfTen = [];
+    startSixCardGame(){
+        let sixCards = []
+        let gameOfTwelve = [];
         let mixer = this.shuffleMemCards(this.cards);
-        for (let index = 0; index < 5; index++) {
-            fiveCards.push(mixer.pop())
+        for (let index = 0; index < 6; index++) {
+            sixCards.push(mixer.pop())
         }
     
-        let duplicateFive = fiveCards.map(card => this.cloneDomElement(card));
+        let duplicateSix = sixCards.map(card => this.cloneDomElement(card));
 
-        gameOfTen = fiveCards.concat(duplicateFive);
+        gameOfTwelve = sixCards.concat(duplicateSix);
 
-        gameOfTen = this.shuffleMemCards(gameOfTen);
+        gameOfTwelve = this.shuffleMemCards(gameOfTwelve);
         
-        gameOfTen.map((gmTenCard, i) =>{
-            gmTenCard.addEventListener("click", () =>{
-                gmTenCard.classList.toggle("flip");
-                this.flippedCards.push(gmTenCard);
+        gameOfTwelve.map((gmTwelveCard, i) =>{
+            gmTwelveCard.addEventListener("click", () =>{
+                gmTwelveCard.classList.toggle("flip");
+                this.flippedCards.push(gmTwelveCard);
                 if (this.flippedCards.length === 2) {
                        this.isMatchOrMiss(this.flippedCards[0], this.flippedCards[1]);
                 }
@@ -152,7 +154,7 @@ class Memory {
             });
         }); 
         
-        gameOfTen.map((card, index) =>{
+        gameOfTwelve.map((card, index) =>{
             this.gameContainerElement.appendChild(card);
         });
     }
