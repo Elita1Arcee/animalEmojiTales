@@ -66,6 +66,7 @@ class Memory {
             backC.appendChild(namesBox);
            
             memoryAnimalDivCW.classList.add("zone");
+
             memoryAnimalDivCW.appendChild(backC);
             memoryAnimalDivCW.appendChild(frontC);
             
@@ -111,7 +112,7 @@ class Memory {
                 gmSixCard.classList.toggle("flip");
                 this.flippedCards.push(gmSixCard);
                 if (this.flippedCards.length === 2) {
-                       this.isMatchOrMiss(this.flippedCards[0].innerText, this.flippedCards[1].innerText);
+                       this.isMatchOrMiss(this.flippedCards[0], this.flippedCards[1]);
                 }
                 console.log(this.flippedCards);
                 
@@ -129,14 +130,15 @@ class Memory {
         let cardMatches = [];
         let matchPoints;
         let missedPoints;
-            if (card1 === card2) {
+            if (card1.innerText === card2.innerText) {
                 this.matches++
                 matchPoints = this.matches
-               console.log(matchPoints);
-                cardMatches.push(card1);
-                cardMatches.push(card2);        
+               console.log(matchPoints);   
                         console.log("Match!");
-                        console.log(cardMatches);
+                        setTimeout(()=>{
+                            card1.remove();
+                            card2.remove();
+                        }, 2000);
                         this.flippedCards = [];
                         console.log(this.flippedCards);
                     }
