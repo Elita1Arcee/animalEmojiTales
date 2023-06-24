@@ -54,7 +54,6 @@ class Memory {
            
             frontC.classList.add("side", "back", "white");
             backC.classList.add("side", bgColors);
-            console.log(backC);
             let memoryAnimalDivCW = document.createElement("div");
             
             let emojiTextNode = document.createTextNode(card);
@@ -99,30 +98,56 @@ class Memory {
         for (let index = 0; index < 3; index++) {
             threeCards.push(mixer.pop())
         }
-        console.log(threeCards);
-
+    
         let duplicateThree = threeCards.map(card => this.cloneDomElement(card));
-
-        console.log(duplicateThree);
 
         gameOfSix = threeCards.concat(duplicateThree);
 
-        console.log(gameOfSix);
         gameOfSix = this.shuffleMemCards(gameOfSix);
-        console.log(gameOfSix);
         
         gameOfSix.map((gmSixCard, i) =>{
             gmSixCard.addEventListener("click", () =>{
                 console.log("I was clicked");
                 gmSixCard.classList.toggle("flip");
+                this.flippedCards.push(gmSixCard);
+                if (this.flippedCards.length === 2) {
+                       this.isMatchOrMiss(this.flippedCards[0].innerText, this.flippedCards[1].innerText);
+                }
+                console.log(this.flippedCards);
+                
             });
         }); 
         
         gameOfSix.map((card, index) =>{
             this.gameContainerElement.appendChild(card);
         });
+    }
 
-
+    isMatchOrMiss(card1, card2) {
+        const matchMade = document.getElementById("umatch");
+        const missed = document.getElementById("umiss");
+        let cardMatches = [];
+        let matchPoints;
+        let missedPoints;
+            if (card1 === card2) {
+                this.matches++
+                matchPoints = this.matches
+               console.log(matchPoints);
+                cardMatches.push(card1);
+                cardMatches.push(card2);        
+                        console.log("Match!");
+                        console.log(cardMatches);
+                        this.flippedCards = [];
+                        console.log(this.flippedCards);
+                    }
+                    
+              else if(card1 != card2) {
+                    this.misses++
+                    missedPoints = this.misses;
+                    console.log(missedPoints);
+                    this.flippedCards = [];
+                    console.log(this.flippedCards);
+                } 
     }
 
     // startFiveCardGame(){
@@ -136,24 +161,6 @@ class Memory {
     //         this.gameContainerElement.appendChild(fiveCards[index]);
     //     })
     // }
-
-    isMatch(card1, card2) {
-        if (card1 == card2) {
-            this.scoreGameMatch();
-        } else {
-            this.scoreGameMiss();
-      }
-    
-      scoreGameMatch() {
-        // Listens for onclick for one card and flips it over
-        // Listens for onclick of second card, flips it over
-        // Checks if both cards that are flipped over match (using isMatch method)
-        // If so, remove those two cards and update Matches by 1
-        // If not, flip both cards back over, and update Misses by 1
-      }
-      scoreGameMiss(){
-
-      }
    
     }
 
