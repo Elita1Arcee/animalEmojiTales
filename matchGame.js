@@ -52,8 +52,8 @@ class Memory {
             let frontC = document.createElement("div");
             let backC = document.createElement("div");
            
-            frontC.classList.add("side", "back", "white");
-            backC.classList.add("side", bgColors);
+            frontC.classList.add("side", "white");
+            backC.classList.add("side", "back", bgColors);
             let memoryAnimalDivCW = document.createElement("div");
             
             let emojiTextNode = document.createTextNode(card);
