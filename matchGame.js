@@ -16,10 +16,12 @@ class Memory {
         const memTitleHolder = document.createElement('div');
         const memTitle = document.createTextNode("Select your number of cards to match");
         const memTitleh2 = document.createElement("h2");
+        memTitleh2.classList.add('text-center', 'pb-4');
         memTitleh2.appendChild(memTitle);
         memTitleHolder.appendChild(memTitleh2);
         memGameTable.appendChild(memTitleHolder);
         const gmBtnsHolder = document.createElement("div")
+        gmBtnsHolder.classList.add('text-center');
         const threeCardGamebtn = document.createElement("button");
         threeCardGamebtn.classList.add('btn', 'btn-success', 'mx-2');
         const threeCardGame = document.createTextNode("Easy- 3 Matches");
