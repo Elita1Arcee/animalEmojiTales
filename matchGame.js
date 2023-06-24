@@ -133,12 +133,13 @@ class Memory {
             if (card1.innerText === card2.innerText) {
                 this.matches++
                 matchPoints = this.matches
+                matchMade.innerText = matchPoints;
                console.log(matchPoints);   
                         console.log("Match!");
                         setTimeout(()=>{
                             card1.remove();
                             card2.remove();
-                        }, 2000);
+                        }, 1550);
                         this.flippedCards = [];
                         console.log(this.flippedCards);
                     }
@@ -146,6 +147,11 @@ class Memory {
               else if(card1 != card2) {
                     this.misses++
                     missedPoints = this.misses;
+                    missed.innerText = missedPoints;
+                    setTimeout(()=>{
+                        card1.classList.toggle('flip');
+                        card2.classList.toggle('flip');
+                    }, 1050);
                     console.log(missedPoints);
                     this.flippedCards = [];
                     console.log(this.flippedCards);
