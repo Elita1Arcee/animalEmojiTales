@@ -19,23 +19,28 @@ class Memory {
         memTitleh2.appendChild(memTitle);
         memTitleHolder.appendChild(memTitleh2);
         memGameTable.appendChild(memTitleHolder);
+        const gmBtnsHolder = document.createElement("div")
         const threeCardGamebtn = document.createElement("button");
-        const threeCardGame = document.createTextNode("Match 3 Cards");
-        // const fiveCardGamebtn = document.createElement("button");
-        // const fiveCardGame = document.createTextNode("Match 5 Cards");
+        const threeCardGame = document.createTextNode("Easy- 3 Matches");
+        const fiveCardGamebtn = document.createElement("button");
+        const fiveCardGame = document.createTextNode("Medium - 5 Matches");
         threeCardGamebtn.appendChild(threeCardGame);
-        // fiveCardGamebtn.appendChild(fiveCardGame);
-        memGameTable.appendChild(threeCardGamebtn);
-        // memGameTable.appendChild(fiveCardGamebtn);
+        fiveCardGamebtn.appendChild(fiveCardGame);
+        gmBtnsHolder.appendChild(threeCardGamebtn);
+        gmBtnsHolder.appendChild(fiveCardGamebtn);
+        memGameTable.appendChild(gmBtnsHolder);
+        
         threeCardGamebtn.addEventListener("click", () =>{
             console.log('beginner level');
             this.startThreeCardGame();
             memTitleh2.classList.add("hideMe");
-            threeCardGamebtn.classList.add('hideMe');
+            gmBtnsHolder.classList.add('hideMe');
         })
-        // fiveCardGamebtn.addEventListener("click", () =>{
-        //     this.startFiveCardGame();
-        // })
+        fiveCardGamebtn.addEventListener("click", () =>{
+            this.startFiveCardGame();
+            memTitleh2.classList.add("hideMe");
+            gmBtnsHolder.classList.add('hideMe');
+        })
 
     }
 
@@ -74,9 +79,7 @@ class Memory {
             memoryCompleteCards.push(memoryAnimalDivCW); 
     })
     
-    
     this.cards = memoryCompleteCards;
-    console.log(this.cards);
     }
 
     cloneDomElement(element) {
@@ -108,7 +111,6 @@ class Memory {
         
         gameOfSix.map((gmSixCard, i) =>{
             gmSixCard.addEventListener("click", () =>{
-                console.log("I was clicked");
                 gmSixCard.classList.toggle("flip");
                 this.flippedCards.push(gmSixCard);
                 if (this.flippedCards.length === 2) {
@@ -120,6 +122,37 @@ class Memory {
         }); 
         
         gameOfSix.map((card, index) =>{
+            this.gameContainerElement.appendChild(card);
+        });
+    }
+
+    startFiveCardGame(){
+        let fiveCards = []
+        let gameOfTen = [];
+        let mixer = this.shuffleMemCards(this.cards);
+        for (let index = 0; index < 5; index++) {
+            fiveCards.push(mixer.pop())
+        }
+    
+        let duplicateFive = fiveCards.map(card => this.cloneDomElement(card));
+
+        gameOfTen = fiveCards.concat(duplicateFive);
+
+        gameOfTen = this.shuffleMemCards(gameOfTen);
+        
+        gameOfTen.map((gmTenCard, i) =>{
+            gmTenCard.addEventListener("click", () =>{
+                gmTenCard.classList.toggle("flip");
+                this.flippedCards.push(gmTenCard);
+                if (this.flippedCards.length === 2) {
+                       this.isMatchOrMiss(this.flippedCards[0], this.flippedCards[1]);
+                }
+                console.log(this.flippedCards);
+                
+            });
+        }); 
+        
+        gameOfTen.map((card, index) =>{
             this.gameContainerElement.appendChild(card);
         });
     }
@@ -141,7 +174,19 @@ class Memory {
                             card2.remove();
                         }, 1550);
                         this.flippedCards = [];
-                        console.log(this.flippedCards);
+                        console.log(this.gameContainerElement.childNodes.length);
+                        if (this.gameContainerElement.childNodes.length === 3) {
+                            setTimeout(() =>{
+                                alert("GREAT JOB!");
+                                this.matches = 0;
+                                matchMade.innerText = 0;
+                                this.misses = 0;
+                                missed.innerText = 0;
+                            }, 1000);
+                            setTimeout(() =>{
+                                this.initGame();
+                            }, 2500);
+                        }
                     }
                     
               else if(card1 != card2) {
@@ -157,18 +202,6 @@ class Memory {
                     console.log(this.flippedCards);
                 } 
     }
-
-    // startFiveCardGame(){
-    //     let fiveCards = []
-    //     let mixer = this.shuffleMemCards(this.cards);
-    //     for (let index = 0; index < 5; index++) {
-    //         fiveCards.push(mixer.pop())
-    //     }
-    //     let duplicateFive = [...fiveCards];
-    //     fiveCards.map((card, index) =>{
-    //         this.gameContainerElement.appendChild(fiveCards[index]);
-    //     })
-    // }
    
     }
 
