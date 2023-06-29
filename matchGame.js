@@ -15,6 +15,8 @@ class Memory {
         this.makeMemGmBtns();
     }
 
+
+    //sets up game containers, appends selection heading
     makeMemBoardTable(){
         let memGameTable = document.getElementById("gameTable");
         const memGameBoard = document.getElementById("gameBoard");
@@ -31,6 +33,8 @@ class Memory {
         this.table = memGameTable;
     }
 
+
+    //creates buttons for selection of level. appends difficulty level. adds eventListeners. passes number of cards for startGame function
     makeMemGmBtns(){
         const gmBtnsHolder = document.createElement("div")
         gmBtnsHolder.classList.add('text-center');
