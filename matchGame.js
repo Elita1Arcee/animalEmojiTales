@@ -79,7 +79,7 @@ class Memory {
     //makes memoryEmoji cards. array to hold complete card. background color classes for cards stored in array, along with emojis and their names.
     //array method map() is used to add color class. because bgGradientColor length is less than the memoryAniEmojis array length, a loop is used
     //to cycle through the memoryAniEmojis array using the modulo operator. The modulo operator finds the bgGradientColorIndex, it gives the 
-    //remainder when 'i' is divided by the length of the array. The bgGradientColorIndex will always be within the range of the array
+    //remainder when 'i' is divided by the length of the array. The bgGradientColorIndex will always be within the range of the array.
     makeMemCards() {
         let memoryCompleteCards = [];
         const bgGradientColors = ["green", "red", "yellow", "blue", "purple", "brown"];
@@ -113,17 +113,22 @@ class Memory {
 
             memoryCompleteCards.push(memoryAnimalDivCW); 
     })
-    
+    //complete set of aniEmojiCards with emoji faces, background colors, and other style class properties
     this.cards = memoryCompleteCards;
     }
 
+    //
     cloneDomElement(element) {
         return element.cloneNode(true);
       }
 
-    shuffleMemCards(array) {
+    
+    // Fisher-Yates algorithm used to produce random order of cards. Swaps elements in the array to achieve a randomized order.
+      shuffleMemCards(array) {
         let mixedUpMemCards = [...array]; // Create a copy of the input array
         for (let i = mixedUpMemCards.length - 1; i > 0; i--) {
+            // Generates a random index j using Math.random() and Math.floor() functions. 
+            //It then swaps the elements at indices i and j using destructuring assignment.
             const j = Math.floor(Math.random() * (i + 1));
             [mixedUpMemCards[i], mixedUpMemCards[j]] = [mixedUpMemCards[j], mixedUpMemCards[i]];
         }
