@@ -75,6 +75,11 @@ class Memory {
         })
     }
 
+    
+    //makes memoryEmoji cards. array to hold complete card. background color classes for cards stored in array, along with emojis and their names.
+    //array method map() is used to add color class. because bgGradientColor length is less than the memoryAniEmojis array length, a loop is used
+    //to cycle through the memoryAniEmojis array using the modulo operator. The modulo operator finds the bgGradientColorIndex, it gives the 
+    //remainder when 'i' is divided by the length of the array. The bgGradientColorIndex will always be within the range of the array
     makeMemCards() {
         let memoryCompleteCards = [];
         const bgGradientColors = ["green", "red", "yellow", "blue", "purple", "brown"];
@@ -105,7 +110,6 @@ class Memory {
 
             memoryAnimalDivCW.appendChild(backC);
             memoryAnimalDivCW.appendChild(frontC);
-            
 
             memoryCompleteCards.push(memoryAnimalDivCW); 
     })
