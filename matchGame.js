@@ -5,21 +5,33 @@ class Memory {
         this.cards = [];
         this.matches = 0;
         this.misses = 0;
+        this.table;
+        this.selection;
         this.flippedCards = [];
     }
-       initGame() {
+       initGame() { 
+        this.makeMemBoardTable();
         this.makeMemCards();
+        this.makeMemGmBtns();
+    }
+
+    makeMemBoardTable(){
         let memGameTable = document.getElementById("gameTable");
         const memGameBoard = document.getElementById("gameBoard");
         memGameBoard.classList.add("memFlex");
         this.gameContainerElement = memGameBoard;
         const memTitleHolder = document.createElement('div');
         const memTitle = document.createTextNode("Select your number of cards to match");
-        const memTitleh2 = document.createElement("h2");
-        memTitleh2.classList.add('text-center', 'pb-4');
-        memTitleh2.appendChild(memTitle);
-        memTitleHolder.appendChild(memTitleh2);
+       
+        this.memTitleh2 = document.createElement("h2");
+        this.memTitleh2.classList.add('text-center', 'pb-4');
+        this.memTitleh2.appendChild(memTitle);
+        memTitleHolder.appendChild(this.memTitleh2);
         memGameTable.appendChild(memTitleHolder);
+        this.table = memGameTable;
+    }
+
+    makeMemGmBtns(){
         const gmBtnsHolder = document.createElement("div")
         gmBtnsHolder.classList.add('text-center');
         const threeCardGamebtn = document.createElement("button");
@@ -32,20 +44,31 @@ class Memory {
         sixCardGamebtn.appendChild(sixCardGame);
         gmBtnsHolder.appendChild(threeCardGamebtn);
         gmBtnsHolder.appendChild(sixCardGamebtn);
-        memGameTable.appendChild(gmBtnsHolder);
-        
-        threeCardGamebtn.addEventListener("click", () =>{
+        const nineCardGamebtn = document.createElement("button");
+        nineCardGamebtn.classList.add('btn', 'btn-danger', 'mx-2');
+        const nineCardGame = document.createTextNode("Hard - 9 Matches");
+        nineCardGamebtn.appendChild(nineCardGame);
+        gmBtnsHolder.appendChild(nineCardGamebtn);
+        this.table.appendChild(gmBtnsHolder);
+
+        threeCardGamebtn.addEventListener("click", () => {
             console.log('beginner level');
-            this.startThreeCardGame();
-            memTitleh2.classList.add("hideMe");
+            this.startGame(3); // Pass 3 for easy level
+            this.memTitleh2.classList.add("hideMe");
             gmBtnsHolder.classList.add('hideMe');
         })
-        sixCardGamebtn.addEventListener("click", () =>{
-            this.startSixCardGame();
-            memTitleh2.classList.add("hideMe");
+        
+        sixCardGamebtn.addEventListener("click", () => {
+            this.startGame(6); // Pass 6 for medium level
+            this.memTitleh2.classList.add("hideMe");
             gmBtnsHolder.classList.add('hideMe');
         })
 
+        nineCardGamebtn.addEventListener("click", () => {
+            this.startGame(9); // Pass 9 for hard level
+            this.memTitleh2.classList.add("hideMe");
+            gmBtnsHolder.classList.add('hideMe');
+        })
     }
 
     makeMemCards() {
@@ -98,80 +121,53 @@ class Memory {
         }
         return mixedUpMemCards;
     }
-    
-    startThreeCardGame(){
-        let threeCards = []
-        let gameOfSix = [];
+
+
+     startGame(numOfCards){
+        let selectedCards = [];
+        let gameSet = [];
         let mixer = this.shuffleMemCards(this.cards);
-        for (let index = 0; index < 3; index++) {
-            threeCards.push(mixer.pop())
+        for (let index = 0; index < numOfCards; index++) {
+            selectedCards.push(mixer.pop())
         }
-    
-        let duplicateThree = threeCards.map(card => this.cloneDomElement(card));
-
-        gameOfSix = threeCards.concat(duplicateThree);
-
-        gameOfSix = this.shuffleMemCards(gameOfSix);
         
-        gameOfSix.map((gmSixCard, i) =>{
-            gmSixCard.addEventListener("click", () =>{
-                gmSixCard.classList.toggle("flip");
-                this.flippedCards.push(gmSixCard);
+        let duplicates = selectedCards.map(card => this.cloneDomElement(card));
+
+        gameSet = selectedCards.concat(duplicates);
+
+        gameSet = this.shuffleMemCards(gameSet);
+        
+        gameSet.map((gameCard, i) => {
+            gameCard.addEventListener("click", () => {
+                gameCard.classList.toggle("flip");
+                this.flippedCards.push(gameCard);
                 if (this.flippedCards.length === 2) {
-                       this.isMatchOrMiss(this.flippedCards[0], this.flippedCards[1]);
+                    this.isMatchOrMiss(this.flippedCards[0], this.flippedCards[1]);
                 }
                 console.log(this.flippedCards);
-                
             });
         }); 
         
-        gameOfSix.map((card, index) =>{
+        gameSet.map((card, index) => {
             this.gameContainerElement.appendChild(card);
         });
     }
-
-    startSixCardGame(){
-        let sixCards = []
-        let gameOfTwelve = [];
-        let mixer = this.shuffleMemCards(this.cards);
-        for (let index = 0; index < 6; index++) {
-            sixCards.push(mixer.pop())
-        }
     
-        let duplicateSix = sixCards.map(card => this.cloneDomElement(card));
-
-        gameOfTwelve = sixCards.concat(duplicateSix);
-
-        gameOfTwelve = this.shuffleMemCards(gameOfTwelve);
-        
-        gameOfTwelve.map((gmTwelveCard, i) =>{
-            gmTwelveCard.addEventListener("click", () =>{
-                gmTwelveCard.classList.toggle("flip");
-                this.flippedCards.push(gmTwelveCard);
-                if (this.flippedCards.length === 2) {
-                       this.isMatchOrMiss(this.flippedCards[0], this.flippedCards[1]);
-                }
-                console.log(this.flippedCards);
-                
-            });
-        }); 
-        
-        gameOfTwelve.map((card, index) =>{
-            this.gameContainerElement.appendChild(card);
-        });
-    }
 
     isMatchOrMiss(card1, card2) {
         const matchMade = document.getElementById("umatch");
         const missed = document.getElementById("umiss");
-        let cardMatches = [];
+        const celebrateCont = document.createElement('p');
+        const celebrate = document.createTextNode('YOU DID IT!');
+        celebrateCont.appendChild(celebrate);
+        celebrateCont.classList.add('text-center','celebrateText','animate__animated','animate__zoomInUp');
         let matchPoints;
         let missedPoints;
             if (card1.innerText === card2.innerText) {
                 this.matches++
                 matchPoints = this.matches
                 matchMade.innerText = matchPoints;
-               console.log(matchPoints);   
+                  
                         console.log("Match!");
                         setTimeout(()=>{
                             card1.remove();
@@ -181,15 +177,16 @@ class Memory {
                         console.log(this.gameContainerElement.childNodes.length);
                         if (this.gameContainerElement.childNodes.length === 3) {
                             setTimeout(() =>{
-                                alert("GREAT JOB!");
+                                this.table.appendChild(celebrateCont);
                                 this.matches = 0;
                                 matchMade.innerText = 0;
                                 this.misses = 0;
                                 missed.innerText = 0;
                             }, 1000);
                             setTimeout(() =>{
+                                this.table.removeChild(celebrateCont);
                                 this.initGame();
-                            }, 2500);
+                            }, 5500);
                         }
                     }
                     
@@ -201,9 +198,7 @@ class Memory {
                         card1.classList.toggle('flip');
                         card2.classList.toggle('flip');
                     }, 1050);
-                    console.log(missedPoints);
                     this.flippedCards = [];
-                    console.log(this.flippedCards);
                 } 
     }
    
