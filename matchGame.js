@@ -117,7 +117,7 @@ class Memory {
     this.cards = memoryCompleteCards;
     }
 
-    //
+    // returns a duplicate of the node on which this method was called. Copies all of its attributes and values. 
     cloneDomElement(element) {
         return element.cloneNode(true);
       }
@@ -136,20 +136,30 @@ class Memory {
     }
 
 
-     startGame(numOfCards){
+     
+    //takes in the level of difficulty(number of cards)
+    startGame(numOfCards){
         let selectedCards = [];
         let gameSet = [];
+
+        //shuffles complete set of animal emoji cards
         let mixer = this.shuffleMemCards(this.cards);
+        //pulls given number of cards from shuffled array
         for (let index = 0; index < numOfCards; index++) {
             selectedCards.push(mixer.pop())
         }
         
+        //Creates a match for each card in array, by duplicating the array.
         let duplicates = selectedCards.map(card => this.cloneDomElement(card));
 
+        //combines both arrays together
         gameSet = selectedCards.concat(duplicates);
 
+        //reshuffles combined array
         gameSet = this.shuffleMemCards(gameSet);
         
+        //adds card flip ability to each card on click. When two cards are pushed into new array this.flippedCards
+        //the this.isMatchorMiss function is called, with the two cards passed as the two parameters.
         gameSet.map((gameCard, i) => {
             gameCard.addEventListener("click", () => {
                 gameCard.classList.toggle("flip");
@@ -161,6 +171,7 @@ class Memory {
             });
         }); 
         
+        //appends all the cards to the game board
         gameSet.map((card, index) => {
             this.gameContainerElement.appendChild(card);
         });
