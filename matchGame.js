@@ -178,6 +178,7 @@ class Memory {
     }
     
 
+    
     isMatchOrMiss(card1, card2) {
         const matchMade = document.getElementById("umatch");
         const missed = document.getElementById("umiss");
@@ -187,18 +188,21 @@ class Memory {
         celebrateCont.classList.add('text-center','celebrateText','animate__animated','animate__zoomInUp');
         let matchPoints;
         let missedPoints;
+        //compares the innerText of the cards, if they're the same, point is awarded and matchmade.innerText is updated
             if (card1.innerText === card2.innerText) {
                 this.matches++
                 matchPoints = this.matches
                 matchMade.innerText = matchPoints;
                   
-                        console.log("Match!");
+                        //matched cards are removed, this.flippedCards array is reset
                         setTimeout(()=>{
                             card1.remove();
                             card2.remove();
                         }, 1550);
                         this.flippedCards = [];
-                        console.log(this.gameContainerElement.childNodes.length);
+                        
+                        //checks the game container for cards (childNodes of the gameContainer). the base childNodes.length of the container
+                        //is 3. If it equals 3, all cards are matched game is won.
                         if (this.gameContainerElement.childNodes.length === 3) {
                             setTimeout(() =>{
                                 this.table.appendChild(celebrateCont);
@@ -214,6 +218,7 @@ class Memory {
                         }
                     }
                     
+                    //If cards innerText dont match, the missedPoints is updated and both cards are flipped over.
               else if(card1 != card2) {
                     this.misses++
                     missedPoints = this.misses;
